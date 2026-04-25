@@ -4,7 +4,7 @@
 
 #include "avr/pgmspace.h"
 
-struct FProgMem
+struct FPROGMEM
 {
     
 public:

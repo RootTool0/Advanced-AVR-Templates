@@ -4,7 +4,7 @@
 
 struct FDelay
 {
-    template<uint32_t InTicks>
+    template<uint32 InTicks>
     FORCEINLINE static void Ticks() 
     {
 #ifndef __IDE__
@@ -12,13 +12,13 @@ struct FDelay
 #endif
     }
     
-    template<uint32_t InMicroseconds>
+    template<uint32 InMicroseconds>
     FORCEINLINE static void Microseconds() 
     {
-        Ticks<static_cast<uint32_t>(static_cast<double>(F_CPU) * InMicroseconds / 1000000.0)>();
+        Ticks<static_cast<uint32>(static_cast<double>(F_CPU) * InMicroseconds / 1000000.0)>();
     }
     
-    template<uint32_t InMilliseconds>
+    template<uint32 InMilliseconds>
     FORCEINLINE static void Milliseconds() 
     {
         Microseconds<InMilliseconds * 1000>();

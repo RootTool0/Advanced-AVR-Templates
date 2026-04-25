@@ -22,6 +22,6 @@ struct FEEPROM
     FORCEINLINE static void Clear(uint16 InAddress, uint16 InSize)
     {
         for(uint16 i = 0; i < InSize; ++i)
-            eeprom_update_byte(reinterpret_cast<uint8_t*>(InAddress + i), 0);
+            eeprom_update_byte(reinterpret_cast<uint8*>(InAddress + i), 0);
     }
 };

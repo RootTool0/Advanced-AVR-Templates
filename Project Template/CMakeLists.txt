@@ -26,7 +26,6 @@ endforeach()
 
 # AVR
 target_include_directories(${PROJECT_NAME} PRIVATE "${AVR_GCC_PATH}/avr/include")
-target_include_directories(${PROJECT_NAME} PRIVATE "../Include")
 add_compile_definitions(__IDE__)
 
 file(GENERATE OUTPUT "Upload.bat" CONTENT
@@ -36,7 +35,7 @@ setlocal enabledelayedexpansion
 echo [1/5] Compiling...
 \"${AVR_GCC_PATH}/bin/avr-gcc.exe\" -std=c++17 -Os -flto ^
     -fno-exceptions -fno-rtti -fno-threadsafe-statics -ffunction-sections -fdata-sections -Wl,--gc-sections ^
-    -mmcu=${MCU} -DF_CPU=${F_CPU} -I\"../../Include\" -I\"../Source\" -o \"${PROJECT_NAME}.elf\" ${SOURCE_FILES_AVR_STRING}
+    -mmcu=${MCU} -DF_CPU=${F_CPU} -I\"../Source\" -o \"${PROJECT_NAME}.elf\" ${SOURCE_FILES_AVR_STRING}
 
 if %errorlevel% neq 0 (
     echo ERROR: Compilation failed!

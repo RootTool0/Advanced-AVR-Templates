@@ -8,7 +8,7 @@ struct FSerial
 {
 
 public:
-    template<uint32_t InBaud>
+    template<uint32 InBaud>
     FORCEINLINE static void Initialize()
     {
         // Set Baud Rate registers

@@ -27,7 +27,7 @@ public:
     
     FORCEINLINE static void ClearAll()
     {
-        for(uint8_t i = 1; i <= 8; ++i) SendCommand(i, 0x00);
+        for(uint8 i = 1; i <= 8; ++i) SendCommand(i, 0x00);
     }
     
     FORCEINLINE static void DisplayRaw(const uint8* InRawPtr)

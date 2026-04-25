@@ -3,7 +3,7 @@
 #include "../Core/Aliases.h"
 #include "Pin.h"
 
-template<uint8_t InPin, bool bInverted>
+template<uint8 InPin, bool bInverted>
 struct TPinPWM
 {
     static_assert(

@@ -1,5 +1,7 @@
 @echo off
 
+xcopy "../Include" "Source/" /E /I /H /Y
+
 mkdir Build 2>nul
 cd Build
 

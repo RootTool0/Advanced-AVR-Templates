@@ -1,15 +1,15 @@
 #include "AAT/GPIO/Pin.h"
 #include "AAT/Delay.h"
 
-using LedPin = TPin<13>;
+using MyLedPin = TPin<13>;
 
 int main()
 {
-    LedPin::InitializeAsOutput();
+    MyLedPin::InitializeAsOutput();
     
     while(true)
     {
-        LedPin::Toggle();
+        MyLedPin::Toggle();
         FDelay::Milliseconds<1000>();
     }
     

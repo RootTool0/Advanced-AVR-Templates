@@ -4,7 +4,7 @@
 #include "../Communication/TWI.h"
 
 template<uint8 InAddress = 0x3C>
-struct FOLED
+struct TOLED
 {
     FORCEINLINE static void Initialize()
     {
