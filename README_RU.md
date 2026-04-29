@@ -33,7 +33,7 @@
 | **EEPROM**                | `Memory/EEPROM.h`        | `FEEPROM`                                                          | Чтение/запись                                                     |
 | **PROGMEM**               | `Memory/PROGMEM.h`       | `FPROGMEM`                                                         | Работа с данными во Flash                                         |
 | **LED-матрицы**           | `Display/MAX7219.h`      | `TMAX7219<uint8 InDIO, uint8 InCS, uint8 InCLK, uint8 InSize = 1>` | MAX7219                                                           |
-| **OLED**                  | `Display/OLED.h`         | `TOLEDtemplate<uint8 InAddress = 0x3C>`                            | SSD1306                                                           |
+| **OLED**                  | `Display/OLED.h`         | `TOLED<uint8 InAddress = 0x3C>`                            | SSD1306                                                           |
 
 ---
 
