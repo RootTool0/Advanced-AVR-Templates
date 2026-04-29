@@ -33,7 +33,7 @@ No virtual functions, no RTTI, no exceptions - only **static polymorphism via te
 | **EEPROM**                | `Memory/EEPROM.h`        | `FEEPROM`                                                          | Read / Write                                               |
 | **PROGMEM**               | `Memory/PROGMEM.h`       | `FPROGMEM`                                                         | Flash data access                                          |
 | **LED matrix**            | `Display/MAX7219.h`      | `TMAX7219<uint8 InDIO, uint8 InCS, uint8 InCLK, uint8 InSize = 1>` | MAX7219 driver                                             |
-| **OLED**                  | `Display/OLED.h`         | `TOLEDtemplate<uint8 InAddress = 0x3C>`                            | SSD1306 driver                                             |
+| **OLED**                  | `Display/OLED.h`         | `TOLED<uint8 InAddress = 0x3C>`                            | SSD1306 driver                                             |
 
 ---
 
