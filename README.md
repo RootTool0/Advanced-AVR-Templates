@@ -24,7 +24,7 @@ No virtual functions, no RTTI, no exceptions - only **static polymorphism via te
 
 | Module                    | File                     | Template/Struct                                                    | Description                                                |
 |---------------------------|--------------------------|--------------------------------------------------------------------|------------------------------------------------------------|
-| **Delays**                | `Delay.h`                | `FDelay`                                                           | Compile-time delay in clocks / microseconds / milliseconds |
+| **Delays**                | `Misc/Delay.h`                | `FDelay`                                                           | Compile-time delay in clocks / microseconds / milliseconds |
 | **Digital pins**          | `GPIO/Pin.h`             | `TPin<uint8 InPin>`                                                | Digital pin operations (Arduino-style mapping)             |
 | **Buttons**               | `GPIO/PinButton.h`       | `TPinButton<uint8 InPin>`                                          | Button polling with pull-up + state flags                  |
 | **PWM**                   | `GPIO/PinPWM.h`          | `TPinPWM<uint8 InPin, bool bInverted>`                             | Hardware timer PWM                                         |
@@ -41,7 +41,7 @@ No virtual functions, no RTTI, no exceptions - only **static polymorphism via te
 
 ```cpp
 #include "AAT/GPIO/Pin.h"
-#include "AAT/Delay.h"
+#include "AAT/Misc/Delay.h"
 
 using MyLedPin = TPin<13>;
 

@@ -4,35 +4,36 @@
 
 #include <avr/io.h>
 
-namespace Pins 
+enum class EPin : uint8
 {
-    static constexpr uint8
-        D0  = 0,
-        D1  = 1,
-        D2  = 2,
-        D3  = 3,
-        D4  = 4,
-        D5  = 5,
-        D6  = 6,
-        D7  = 7,
-        D8  = 8,
-        D9  = 9,
-        D10 = 10,
-        D11 = 11,
-        D12 = 12,
-        D13 = 13,
-        A0  = 14,
-        A1  = 15,
-        A2  = 16,
-        A3  = 17,
-        A4  = 18,
-        A5  = 19;
-}
+    D0  = 0,
+    D1  = 1,
+    D2  = 2,
+    D3  = 3,
+    D4  = 4,
+    D5  = 5,
+    D6  = 6,
+    D7  = 7,
+    D8  = 8,
+    D9  = 9,
+    D10 = 10,
+    D11 = 11,
+    D12 = 12,
+    D13 = 13,
+    A0  = 14,
+    A1  = 15,
+    A2  = 16,
+    A3  = 17,
+    A4  = 18,
+    A5  = 19,
+    
+    MAX
+};
 
-template<uint8 InPin>
+template<EPin InPin>
 struct TPin
 {
-    static_assert(InPin <= 19, "TPin Error: Pin index out of range [0-19]");
+    static_assert(static_cast<uint8>(InPin) <= static_cast<uint8>(EPin::MAX), "TPin Error: Pin index out of range [0-19]");
     
 public:
     FORCEINLINE static void InitializeAsOutput() { *GetDDR() |=  GetBitMask(); }
@@ -48,9 +49,9 @@ public:
     FORCEINLINE static bool Get() { return (*GetPIN() & GetBitMask()) != 0; }
     
 private:
-    static constexpr bool bIsD = (InPin <= 7);
-    static constexpr bool bIsB = (InPin >= 8 && InPin <= 13);
-    static constexpr bool bIsC = (InPin >= 14 && InPin <= 19);
+    static constexpr bool bIsD = (static_cast<uint8>(InPin) <=  7);
+    static constexpr bool bIsB = (static_cast<uint8>(InPin) >=  8 && static_cast<uint8>(InPin) <= 13);
+    static constexpr bool bIsC = (static_cast<uint8>(InPin) >= 14 && static_cast<uint8>(InPin) <= 19);
     
     FORCEINLINE static constexpr volatile uint8* GetDDR()
     {
@@ -78,9 +79,9 @@ private:
 
     FORCEINLINE static constexpr uint8 GetBitMask()
     {
-        if constexpr (bIsD) return (1 << InPin);
-        if constexpr (bIsB) return (1 << (InPin - 8));
-        if constexpr (bIsC) return (1 << (InPin - 14));
+        if constexpr (bIsD) return (1 << (static_cast<uint8>(InPin)));
+        if constexpr (bIsB) return (1 << (static_cast<uint8>(InPin) - 8 ));
+        if constexpr (bIsC) return (1 << (static_cast<uint8>(InPin) - 14));
         return 0;
     }
 };
