@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../Delay.h"
+#include "../Misc/Delay.h"
 #include "../Communication/SPI.h"
 #include "../Core/Aliases.h"
 #include "../GPIO/Pin.h"

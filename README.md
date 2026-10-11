@@ -72,28 +72,21 @@ int main()
 
 ## Project Template
 
-The repository also includes a `Project Template` folder - a ready-to-use structure for new projects.
+The repository also includes a `Project Template` folder — a ready-to-use structure for new projects. To keep the main branch clean, you can download it from the **Releases** tab on GitHub
+
+[Download Project Template](https://github.com/RootTool0/Advanced-AVR-Templates/releases/tag/Project-Template)
 
 ### How to use
 
-1. Copy the `Project Template` folder to a new name
-2. (If needed) edit `CMakeLists.txt` - set MCU type, frequency, port, etc.
-3. Run `Build.bat`
+1. Download the `Project-Template.zip` archive from the latest release via the link above and unpack it under your new project's name
+2. Open `CMakeLists.txt` in the root of the unpacked folder and edit the parameters for your needs __(set MCU type, frequency, programmer port, etc.)__
+3. Generate the project via **CMake** and run the build
 
-**What `Build.bat` does:**
-- Copies `AAT` from `Include/` into the project folder
-- Runs **CMake** with preset parameters
-- Creates a `.sln` project in the `Build` folder
-- Generates `Upload.bat` via **CMake** for flashing the MCU
-- **Self-destructs** (deletes itself)
-
-After the build, write your code and run `Upload.bat` to flash the MCU
-
-_(`Build.bat` runs only once - this prevents accidentally overwriting your changes. Use **CMake** directly for subsequent builds!)_
+After a successful generation, **CMake** will automatically create the **IDE project files** in the build folder and generate the `Upload.bat` script for flashing the MCU
 
 ### Manual setup (without the template)
 
-1. Copy the `AAT` folder from `Include/` into your project
+1. Clone the repository into your project
 2. Compile with these flags:
    ```
    -std=c++17 -fno-exceptions -fno-rtti -Os
