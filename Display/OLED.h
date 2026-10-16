@@ -30,7 +30,7 @@ struct TOLED
         WriteCMD(0xAF);                 // Display ON
     }
     
-    FORCEINLINE static void SetCursor(uint8 InPage, uint8 InCol)
+    FORCEINLINE static void SetCursor(const uint8 InPage, const uint8 InCol)
     {
         FTWI::Start();
         FTWI::Write(InAddress << 1);
@@ -41,7 +41,7 @@ struct TOLED
         FTWI::Stop();
     }
     
-    FORCEINLINE static void Fill(uint8 InData)
+    FORCEINLINE static void Fill(const uint8 InData)
     {
         for(uint8 page = 0; page < 8; ++page)
         {
@@ -57,7 +57,7 @@ struct TOLED
     
     FORCEINLINE static void Clear() { Fill(0x00); }
     
-    FORCEINLINE static void DrawByte(uint8 InPage, uint8 InCol, uint8 InData)
+    FORCEINLINE static void DrawByte(const uint8 InPage, const uint8 InCol, const uint8 InData)
     {
         SetCursor(InPage, InCol);
         
@@ -68,8 +68,19 @@ struct TOLED
         FTWI::Stop();
     }
     
+    FORCEINLINE static void FillFromBuffer(const uint8* InBuffer)
+    {
+        SetCursor(0, 0);
+        
+        FTWI::Start();
+        FTWI::Write(InAddress << 1);
+        FTWI::Write(0x40);
+        for(uint16 i = 0; i < 1024; ++i) FTWI::Write(InBuffer[i]);
+        FTWI::Stop();
+    }
+
 private:
-    static void WriteCMD(uint8 InCMD)
+    static void WriteCMD(const uint8 InCMD)
     {
         FTWI::Start();
         FTWI::Write(InAddress << 1);
